@@ -1,13 +1,13 @@
-export function obtenerAniversario(fecha) {
-  const currenteDate = new Date();
-  const currenteDateMs = currenteDate.getTime();
-  const currenteYear = currenteDate.getFullYear();
+export function obtenerAniversario(date) {
+  const currentDate = new Date();
+  const currentDateMs = currentDate.getTime();
+  const currentYear = currentDate.getFullYear();
 
-  let nextAnniversary = new Date(`${fecha}, ${currenteYear}`);
+  let nextAnniversary = new Date(`${date}, ${currentYear}`);
   let nextAnniversaryMs = nextAnniversary.getTime();
 
-  if (currenteDateMs > nextAnniversaryMs) {
-    nextAnniversary = new Date(`${fecha}, ${currenteYear + 1}`);
+  if (currentDateMs > nextAnniversaryMs) {
+    nextAnniversary = new Date(`${date}, ${currentYear + 1}`);
     return nextAnniversary;
   }
   return nextAnniversary;
