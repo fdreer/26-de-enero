@@ -1,6 +1,7 @@
-export default function TimeToCountDown({countDown, isFinish}) {
-  // const {days, hours, minutes, seconds} = countDown;
-  //   console.log(days, hours, minutes, seconds);
+import useCountDown from '../hooks/useCountDown';
+
+export default function TimeToCountDown() {
+  const {countDown, isFinish} = useCountDown();
 
   return (
     <>
@@ -12,11 +13,9 @@ export default function TimeToCountDown({countDown, isFinish}) {
         </h2>
       </article>
       {isFinish && (
-        <>
-          <article>
-            <h2>¡FELICIDADES!</h2>
-          </article>
-        </>
+        <article>
+          <h2>¡FELICIDADES!</h2>
+        </article>
       )}
     </>
   );
