@@ -1,3 +1,4 @@
+// Diferencia de tiempo entre limitDate y now
 export default function tiempoDeDiferencia(limitDate) {
   const now = new Date().getTime();
   const countDownDate = new Date(limitDate).getTime();

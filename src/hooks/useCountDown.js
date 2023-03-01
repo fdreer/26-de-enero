@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import fireworks from '../logic/fireworks';
 import {obtenerAniversario} from '../logic/obtenerAniversario';
 import tiempoDeDiferencia from '../logic/tiempoDeDiferencia';
+import {DATE, TIME_ZERO} from '../constants';
 
 export default function useCountDown() {
   const [countDown, setCountDown] = useState(null);
@@ -10,13 +11,16 @@ export default function useCountDown() {
   useEffect(() => {
     if (!isFinish) {
       setTimeout(() => {
-        const aniversario = obtenerAniversario('Jan 26');
-
-        // Time --> Diferencia de tiempo entre limitDate y now
+        const aniversario = obtenerAniversario({date: DATE});
         const time = tiempoDeDiferencia(aniversario);
 
         if (!time) {
-          setCountDown({days: '0', hours: '00', minutes: '00', seconds: '00'});
+          setCountDown({
+            days: TIME_ZERO.days,
+            hours: TIME_ZERO.hours,
+            minutes: TIME_ZERO.minutes,
+            seconds: TIME_ZERO.seconds,
+          });
           setIsFinish(true);
         } else {
           setCountDown(time);

@@ -1,5 +1,3 @@
-import {useState, useEffect} from 'react';
-import tiempoDeDiferencia from '../logic/tiempoDeDiferencia';
 import TimeToCountDown from './TimeToCountDown';
 import macaFranco from '../assets/maca-franco.jpeg';
 

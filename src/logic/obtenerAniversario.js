@@ -1,4 +1,4 @@
-export function obtenerAniversario(date) {
+export function obtenerAniversario({date}) {
   const currentDate = new Date();
   const currentDateMs = currentDate.getTime();
   const currentYear = currentDate.getFullYear();
