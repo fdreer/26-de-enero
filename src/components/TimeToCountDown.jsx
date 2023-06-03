@@ -1,7 +1,11 @@
-import useCountDown from '../hooks/useCountDown';
+import useCountDown from '../hooks/useCountDown'
 
 export default function TimeToCountDown() {
-  const {countDown, isFinish} = useCountDown();
+  const {countDown, isFinish} = useCountDown()
+
+  const addLeadingZero = value => {
+    return value < 10 ? `0${value}` : value
+  }
 
   return (
     <>
@@ -9,7 +13,11 @@ export default function TimeToCountDown() {
         <h2>
           {countDown === null
             ? 'Calculando...'
-            : `${countDown.days}:${countDown.hours}:${countDown.minutes}:${countDown.seconds}`}
+            : `${countDown.days}:${addLeadingZero(
+                countDown.hours
+              )}:${addLeadingZero(countDown.minutes)}:${addLeadingZero(
+                countDown.seconds
+              )}`}
         </h2>
       </article>
       {isFinish && (
@@ -18,5 +26,5 @@ export default function TimeToCountDown() {
         </article>
       )}
     </>
-  );
+  )
 }
